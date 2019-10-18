@@ -78,7 +78,6 @@ class Network(object):
         json.dump(data, f)
         f.close()
 
-
     def predict(self, x):
         output_activation = self.feedforward(x, is_prediction = True)
         prediction_index = np.argmax(output_activation)
@@ -189,7 +188,7 @@ class Network(object):
         inverse_map = {}
         curr_class_num = 0
         for val in np.unique(y):
-            if val in class_map.keys() and val in inverse_map.values():
+            if val in class_map.values() and val in inverse_map.keys():
                 continue
             else:
                 class_map[curr_class_num] = val
